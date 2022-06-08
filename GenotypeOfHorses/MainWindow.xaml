@@ -1,0 +1,69 @@
+﻿<Window x:Class="GenotypeOfHorses.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GenotypeOfHorses"
+        mc:Ignorable="d"
+        Title="GenotypeOfHorses" Height="450" Width="800" Icon="/icon.png">
+    <Grid x:Name="MainGrid" Background="Black">
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="3*" />
+            <ColumnDefinition Width="22*"/>
+            <ColumnDefinition Width="25*" />
+            <ColumnDefinition Width="25*" />
+            <ColumnDefinition Width="25*" />
+            <ColumnDefinition Width="25*" />
+            <ColumnDefinition Width="25*" />
+            <ColumnDefinition Width="25*" />
+            <ColumnDefinition Width="25*" />
+        </Grid.ColumnDefinitions>
+        <TextBox Name="textBoxGrandfatherMother" Grid.Column="0" Grid.Row="0" Background="#FFB39DDB" Grid.ColumnSpan="3" Text="Дедушка" TextAlignment="Center" VerticalAlignment="Top" Margin="10,20,10,0" IsReadOnly = "True" Cursor="Arrow" Foreground="White"/>
+        <ComboBox Name="comboBoxGrandfatherMother" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="3" ItemsSource="{Binding horseSuitGrandfather}" SelectionChanged="SelectionChangedGrandfatherFather" Text="Неизвестно" Foreground="White" Margin="10,0,10,0"/>
+
+        <TextBox Name="textBoxGrandmotherMother" Grid.Column="3" Grid.Row="0" Background="#FFB39DDB" Grid.ColumnSpan="2" Text="Бабушка" TextAlignment="Center" VerticalAlignment="Top" Margin="10,20,10,0" IsReadOnly = "True" Cursor="Arrow" Foreground="White"/>
+        <ComboBox Name="comboBoxGrandmotherMother" Grid.Column="3" Grid.Row="1" Grid.ColumnSpan="2" ItemsSource="{Binding horseSuitGrandmother}" SelectionChanged="SelectionChangedGrandmotherFather" Text="Неизвестно" Foreground="White" Margin="10,0,10,0"/>
+
+        <TextBox Name="textBoxGrandfatherFather" Grid.Column="5" Grid.Row="0" Background="#FFB39DDB" Grid.ColumnSpan="2" Text="Дедушка" TextAlignment="Center" VerticalAlignment="Top" Margin="10,20,10,0" IsReadOnly = "True" Cursor="Arrow" Foreground="White"/>
+        <ComboBox Name="comboBoxGrandfatherFather" Grid.Column="5" Grid.Row="1" Grid.ColumnSpan="2" ItemsSource="{Binding horseSuitGrandfather}" SelectionChanged="SelectionChangedGrandfatherMother" Text="Неизвестно" Foreground="White" Margin="10,0,10,0"/>
+
+        <TextBox Name="textBoxGrandmotherFather" Grid.Column="7" Grid.Row="0" Background="#FFB39DDB" Grid.ColumnSpan="2" Text="Бабушка" TextAlignment="Center" VerticalAlignment="Top" Margin="10,20,10,0" IsReadOnly = "True" Cursor="Arrow" Foreground="White"/>
+        <ComboBox Name="comboBoxGrandmotherFather" Grid.Column="7" Grid.Row="1" Grid.ColumnSpan="2" ItemsSource="{Binding horseSuitGrandmother}" SelectionChanged="SelectionChangedGrandmotherMother" Text="Неизвестно" Foreground="White" Margin="10,0,10,0"/>
+
+        <TextBox Name="textBoxFather" Grid.Column="2" Grid.Row="2" Background="#FF673AB7" Grid.ColumnSpan="2" Text="Папа" TextAlignment="Center" VerticalAlignment="Top" Margin="10,19,10,0" IsReadOnly = "True" Cursor="Arrow" Foreground="White"/>
+        <ComboBox Name="comboBoxFather" Grid.Column="2" Grid.Row="3" Grid.ColumnSpan="2" ItemsSource="{Binding horseSuitFather}" SelectionChanged="SelectionChangedFather" Text="Рыжий" Foreground="White" Margin="10,0,10,0"/>
+
+        <TextBox Name="textBoxMother" Grid.Column="6" Grid.Row="2" Background="#FF673AB7" Grid.ColumnSpan="2" Text="Мама" TextAlignment="Center" VerticalAlignment="Top" Margin="10,19,10,0" IsReadOnly = "True" Cursor="Arrow" Foreground="White"/>
+        <ComboBox Name="comboBoxMother" Grid.Column="6" Grid.Row="3" Grid.ColumnSpan="2" ItemsSource="{Binding horseSuitMother}" SelectionChanged="SelectionChangedMother" Text="Рыжая" Foreground="White" Margin="10,0,10,0"/>
+
+        <TextBox Name="textBoxChild0Father" Grid.Column="0" Grid.Row="4" Background="#FFB39DDB" Grid.ColumnSpan="3" Text="Папин жеребёнок" TextAlignment="Center" VerticalAlignment="Top" Margin="10,20,10,0" IsReadOnly = "True" Cursor="Arrow" Foreground="White"/>
+        <ComboBox Name="comboBoxChild0Father" Grid.Column="0" Grid.Row="5" Grid.ColumnSpan="3" ItemsSource="{Binding horseSuitChild}" SelectionChanged="SelectionChangedChildFather" Text="Неизвестно" Foreground="White" Margin="10,0,10,0"/>
+
+        <TextBox Name="textBoxChild1Father" Grid.Column="3" Grid.Row="4" Background="#FFB39DDB" Grid.ColumnSpan="2" Text="Папин жеребёнок" TextAlignment="Center" VerticalAlignment="Top" Margin="10,20,10,0" IsReadOnly = "True" Cursor="Arrow" Foreground="White"/>
+        <ComboBox Name="comboBoxChild1Father" Grid.Column="3" Grid.Row="5" Grid.ColumnSpan="2" ItemsSource="{Binding horseSuitChild}" SelectionChanged="SelectionChangedChildFather" Text="Неизвестно" Foreground="White" Margin="10,0,10,0"/>
+
+        <TextBox Name="textBoxChild0Mother" Grid.Column="5" Grid.Row="4" Background="#FFB39DDB" Grid.ColumnSpan="2" Text="Мамин жеребёнок" TextAlignment="Center" VerticalAlignment="Top" Margin="10,20,10,0" IsReadOnly = "True" Cursor="Arrow" Foreground="White"/>
+        <ComboBox Name="comboBoxChild0Mother" Grid.Column="5" Grid.Row="5" Grid.ColumnSpan="2" ItemsSource="{Binding horseSuitChild}" SelectionChanged="SelectionChangedChildMother" Text="Неизвестно" Foreground="White" Margin="10,0,10,0"/>
+
+        <TextBox Name="textBoxChild1Mother" Grid.Column="7" Grid.Row="4" Background="#FFB39DDB" Grid.ColumnSpan="2" Text="Мамин жеребёнок" TextAlignment="Center" VerticalAlignment="Top" Margin="10,20,10,0" IsReadOnly = "True" Cursor="Arrow" Foreground="White"/>
+        <ComboBox Name="comboBoxChild1Mother" Grid.Column="7" Grid.Row="5" Grid.ColumnSpan="2" ItemsSource="{Binding horseSuitChild}" SelectionChanged="SelectionChangedChildMother" Text="Неизвестно" Foreground="White" Margin="10,0,10,0"/>
+
+        <TextBox Name="textBoxChildCalculate" Grid.Column="4" Grid.Row="6" Background="#FF673AB7" Grid.ColumnSpan="2" Text="Жеребёнок" TextAlignment="Center" VerticalAlignment="Top" Margin="10,19,10,0" IsReadOnly = "True" Cursor="Arrow" Foreground="White"/>
+        <TextBox Name="textBoxRed" Grid.Column="0" Grid.Row="7" Background="Black" Text="Рыжий:" TextAlignment="Center" VerticalAlignment="Top" Margin="5,9,77,0" IsReadOnly = "True" Cursor="Arrow" Foreground="White" Grid.ColumnSpan="3"/>
+        <TextBox Name="textBoxBlack" Grid.Column="2" Grid.Row="7" Background="Black" Text="Вороной:" TextAlignment="Center" VerticalAlignment="Top" Margin="28,9,50,0" IsReadOnly = "True" Cursor="Arrow" Foreground="White" Grid.ColumnSpan="2"/>
+        <TextBox Name="textBoxChestnut" Grid.Column="3" Grid.Row="7" Background="Black" Text="Гнедой:" TextAlignment="Center" VerticalAlignment="Top" Margin="55,9,5,0" IsReadOnly = "True" Cursor="Arrow" Foreground="White" Grid.ColumnSpan="2"/>
+        <TextBox Name="textBoxBulan" Grid.Column="5" Grid.Row="7" Background="Black" Text="Буланый:" TextAlignment="Center" VerticalAlignment="Top" Margin="0,9,68,0" IsReadOnly = "True" Cursor="Arrow" Foreground="White" Grid.ColumnSpan="2"/>
+        <TextBox Name="textBoxNightingale" Grid.Column="6" Grid.Row="7" Background="Black" Text="Соловый:" TextAlignment="Center" VerticalAlignment="Top" Margin="37,9,37,0" IsReadOnly = "True" Cursor="Arrow" Foreground="White" Grid.ColumnSpan="2"/>
+        <TextBox Name="textBoxIsabella" Grid.Column="7" Grid.Row="7" Background="Black" Text="Изабелловый:" TextAlignment="Center" VerticalAlignment="Top" Margin="68,9,5,0" IsReadOnly = "True" Cursor="Arrow" Foreground="White" Grid.ColumnSpan="2"/>
+    </Grid>
+</Window>
